@@ -1,0 +1,118 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+//#include <dt-bindings/zmk/mouse.h>
+
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/ext_power.h>
+//#include <behaviors/mouse_keys.dtsi>
+//#include <input/processors.dtsi>
+
+
+#define THUMB_LEFT  0
+#define THUMB_RIGHT 1
+#define FINGER_LEFT 2
+#define FINGER_RIGHT 3 
+#define THUMB_LEFT_SCROLL  4
+#define THUMB_RIGHT_SCROLL 5
+#define FINGERS_SCROLL 6
+
+// Mouse speed increased
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
+//#include <dt-bindings/zmk/pointing.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+//        map = <
+//		                 /* Ball */
+//	         	RC(0,3)              RC(0,0) 
+//		 RC(0,4)                            RC(0,1)
+//   		 RC(0,5) 	                    RC(0,2) 
+//                  /* Buttons on top of the middle deck */
+//  		       /* Unlock  BTSelect BTReset */ 
+//                          RC(0,6) RC(0,7)  RC(0,8)        
+//               /* Slider switches on the bottom of the middle deck */
+//		/* Handiness L/R   Orientation Thumb/Fingers  */
+//                      RC(0,10)               RC(0,9)      
+//        >;
+
+// &mkp LCLK &mkp MCLK &mkp RCLK  &none
+
+	// Layer 0
+        THUMB_LEFT {
+            bindings = <
+			&mkp LCLK             	&kp ESC
+		&mo THUMB_LEFT_SCROLL		     &none
+		&mkp RCLK                            &none
+	                   /* Inner Buttons  */
+		&studio_unlock  &bt BT_NXT   &bt BT_CLR
+                     /* Handiness         Orientation */
+			&mo 1                   &mo 2
+            >;
+        };
+
+
+	// Layer 1
+        THUMB_RIGHT {
+            bindings = <
+     			&kp ESC        		&mkp LCLK             
+	       &none  				     &mo THUMB_RIGHT_SCROLL
+	       &none  	 			     &mkp RCLK                     
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+                     /* Handiness         Orientation */
+			&trans                  &mo 2
+            >;
+        };
+
+	// Layer 2
+        FINGER_LEFT {
+            bindings = <
+			&mkp RCLK		&mkp LCLK             
+		&mo FINGERS_SCROLL			&mkp MCLK
+		&kp ESC					&kp ESC					
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+                     /* Handiness         Orientation */
+			&mo 3                  &trans
+            >;
+        };
+
+	// Layer 3
+        FINGER_RIGHT {
+            bindings = <
+			&mkp LCLK             &mkp RCLK 
+		&mkp MCLK				&mo FINGERS_SCROLL
+		&kp ESC	        			&kp ESC
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+                     /* Handiness         Orientation */
+			&trans                 &trans
+            >;
+        };
+ 
+
+	// Scroll layers do nothing by themselves, it is completely transparent.
+	// It is detected in trackball_listener telling to switch from the pointing movement to scrolling.
+	// Need separate layers for orientation to implement 
+ 	// Layers 4, 5, 6
+/* 4 */ THUMB_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 5 */ THUMB_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 6 */ FINGERS_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+
+        extra1 {status = "reserved";};
+        extra2 {status = "reserved";};
+        extra3 {status = "reserved";};
+        extra4 {status = "reserved";};
+        extra5 {status = "reserved";};
+        extra6 {status = "reserved";};
+        extra7 {status = "reserved";};
+        extra8  {status = "reserved";};
+
+    };
+
+};
