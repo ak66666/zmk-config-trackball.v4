@@ -65,7 +65,7 @@
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
-			&trans                  &mo 2
+			&trans                  &trans
             >;
         };
 
@@ -78,7 +78,7 @@
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
-			&mo 3                  &trans
+			&trans                  &trans
             >;
         };
 
@@ -113,6 +113,14 @@
         extra7 {status = "reserved";};
         extra8  {status = "reserved";};
 
+     };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <FINGER_LEFT THUMB_RIGHT>;
+            then-layer = <FINGER_RIGHT>;
+        };
     };
 
 };
