@@ -31,7 +31,7 @@
 //		                 /* Ball */
 //	         	RC(0,3)              RC(0,0) 
 //		 RC(0,4)                            RC(0,1)
-//   		 RC(0,5) 	                    RC(0,2) 
+//  		 RC(0,5)    RC(0,11)     RC(0,12)   RC(0,2) 
 //                  /* Buttons on top of the middle deck */
 //  		       /* Unlock  BTSelect BTReset */ 
 //                          RC(0,6) RC(0,7)  RC(0,8)        
@@ -47,7 +47,7 @@
             bindings = <
 			&mkp LCLK             	&kp ESC
 		&mo THUMB_LEFT_SCROLL		     &none
-		&mkp RCLK                            &none
+		&mkp RCLK    &kp A    &kp B          &none
 	                   /* Inner Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
                      /* Handiness         Orientation */
@@ -60,8 +60,8 @@
         THUMB_RIGHT {
             bindings = <
      			&kp ESC        		&mkp LCLK             
-	       &none  				     &mo THUMB_RIGHT_SCROLL
-	       &none  	 			     &mkp RCLK                     
+	       &none  				     	&mo THUMB_RIGHT_SCROLL
+	       &none  	 	&kp A    &kp B		&mkp RCLK                     
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
@@ -74,7 +74,7 @@
             bindings = <
 			&mkp RCLK		&mkp LCLK             
 		&mo FINGERS_SCROLL			&mkp MCLK
-		&kp ESC					&kp ESC					
+		&kp ESC		&kp A    &kp B		&kp ESC					
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
@@ -87,7 +87,7 @@
             bindings = <
 			&mkp LCLK             &mkp RCLK 
 		&mkp MCLK				&mo FINGERS_SCROLL
-		&kp ESC	        			&kp ESC
+		&kp ESC	       &kp A    &kp B		&kp ESC
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
@@ -100,9 +100,9 @@
 	// It is detected in trackball_listener telling to switch from the pointing movement to scrolling.
 	// Need separate layers for orientation to implement 
  	// Layers 4, 5, 6
-/* 4 */ THUMB_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
-/* 5 */ THUMB_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
-/* 6 */ FINGERS_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 4 */ THUMB_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans> &trans &trans>;};
+/* 5 */ THUMB_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans> &trans &trans>;};
+/* 6 */ FINGERS_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans> &trans &trans>;};
 
         extra1 {status = "reserved";};
         extra2 {status = "reserved";};

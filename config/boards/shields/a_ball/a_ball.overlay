@@ -23,7 +23,7 @@
 		                 /* Ball */
 	         	RC(0,3)              RC(0,0) 
 		 RC(0,4)                            RC(0,1)
-   		 RC(0,5) 	                    RC(0,2) 
+   		 RC(0,5)    RC(0,11)     RC(0,12)   RC(0,2) 
                   /* Buttons on top of the middle deck */
   		       /* Unlock  BTSelect BTReset */ 
                           RC(0,6) RC(0,7)  RC(0,8)        
@@ -49,6 +49,9 @@
             , <&pro_micro 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* BT Reset  */
             , <&pro_micro 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Handness: Pressed - Right, Released - Left */
  	    , <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Orientation: Pressed - Fingers, Released - Thumbs */
+
+            , <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 7 */
+            , <&pro_micro 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 8 */
             ;
     };
 
