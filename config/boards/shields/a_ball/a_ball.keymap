@@ -37,7 +37,7 @@
 //               /* Slider switches on the bottom of the middle deck */
 //		/* Orientation (Front/Backwards)   Handiness L/R     */
 //                       RC(0,10)        	     RC(0,9)              
-        >;
+//        >;
 
 // &mkp LCLK &mkp MCLK &mkp RCLK  &none
 
