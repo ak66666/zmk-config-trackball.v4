@@ -151,19 +151,19 @@
     */
 
     /* layer-2 backwards Left Hand pointer */
-    back_left_hand_pointer: back_left_hand_pointer{
-        layers           = <2 3>;
-        input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT |  INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
-	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
-	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
-        >;
-//	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
-    };
+//    back_left_hand_pointer: back_left_hand_pointer{
+//        layers           = <2 3>;
+//        input-processors = <
+//            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT |  INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
+//	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
+//	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
+//        >;
+// //	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
+//    };
 
     /* layer-1 Front Right Hand pointer */
     /* This layer's processor was intentionally moved to be after the left/right finger-controller layers, 
-       so this is not get invoked when those layers are activated,
+        so this is not get invoked when those layers are activated,
        to avoid double-rotations which occured when the handiness switch was set to Right before the orientation set to Landscape. */
 //    front_right_hand_pointer: front_right_hand_pointer{
 //        layers           = <1>;
