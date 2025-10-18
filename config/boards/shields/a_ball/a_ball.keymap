@@ -13,8 +13,8 @@
 
 #define FRONT_RIGHT 0
 #define FRONT_LEFT 1
-#define BACK_LEFT 2
-#define BACK_RIGHT 3
+#define BACK_RIGHT 2
+#define BACK_LEFT 3
 #define FRONT_SCROLL 4
 #define BACKWARD_SCROLL 5
 
@@ -51,7 +51,7 @@
    	/*	  &bt BT_CLR  &bt BT_NXT   &studio_unlock	*/
 			&kp 1  &kp 2  &kp 3
                /* Orientation (Front/Backward)   Handiness L/R     */
-			&mo 3                   &mo 1
+			&mo 2                   &mo 1
             >;
         };
 
@@ -69,20 +69,8 @@
             >;
         };
 
-	// Layer 2
-        BACK_LEFT {
-            bindings = <
-		&mkp RCLK				&kp ESC
-		&mkp MCLK				&mkp MCLK 				
-		&mo BACKWARD_SCROLL     &kp E    &kp F	&mkp LCLK
-	                   /* Inner Buttons  */
-		            &trans &trans &trans
-               /* Orientation (Front/Backward)   Handiness L/R     */
-			&trans                 &trans
-            >;
-         };
 
-	// Layer 3
+	// Layer 2
         BACK_RIGHT {
             bindings = <
 		&kp ESC         			&mkp RCLK		
@@ -94,6 +82,19 @@
 			&trans                 &trans
             >;
         };
+ 
+	// Layer 3
+        BACK_LEFT {
+            bindings = <
+		&mkp RCLK				&kp ESC
+		&mkp MCLK				&mkp MCLK 				
+		&mo BACKWARD_SCROLL     &kp E    &kp F	&mkp LCLK
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+               /* Orientation (Front/Backward)   Handiness L/R     */
+			&trans                 &trans
+            >;
+         };
  
 //   		 RC(0,5)    			    RC(0,2) 
 //		 RC(0,4)	/* Ball */	    RC(0,1)
