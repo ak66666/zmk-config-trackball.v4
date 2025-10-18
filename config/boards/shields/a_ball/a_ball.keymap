@@ -12,8 +12,8 @@
 
 #define FRONT_RIGHT  0
 #define FRONT_LEFT 1
-#define BACK_RIGHT 2
-#define BACK_LEFT 3 
+#define BACK_LEFT 2
+#define BACK_RIGHT 3
 #define FRONT_LEFT_SCROLL  4
 #define FRONT_RIGHT_SCROLL 5
 #define BACKWARD_SCROLL 6
@@ -69,24 +69,24 @@
         };
 
 	// Layer 2
-        BACK_RIGHT {
-            bindings = <
-		&mkp LCLK      				&mo BACKWARD_SCROLL
-		&mkp MCLK 				&mkp MCLK
-		&kp ESC  	&kp D    &kp C		&mkp RCLK 
-	                   /* Inner Buttons  */
-		            &trans &trans &trans
-               /* Orientation (Front/Backward)   Handiness L/R     */
-			&trans                 &trans
-            >;
-        };
-
-	// Layer 3
         BACK_LEFT {
             bindings = <
 		&mo BACKWARD_SCROLL			&mkp LCLK
 		&mkp MCLK				&mkp MCLK 				
 		&mkp RCLK         &kp A    &kp B	&kp ESC
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+               /* Orientation (Front/Backward)   Handiness L/R     */
+			&trans                 &trans
+            >;
+         };
+
+	// Layer 3
+        BACK_RIGHT {
+            bindings = <
+		&mkp LCLK      				&mo BACKWARD_SCROLL
+		&mkp MCLK 				&mkp MCLK
+		&kp ESC  	&kp D    &kp C		&mkp RCLK 
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                /* Orientation (Front/Backward)   Handiness L/R     */
