@@ -10,12 +10,12 @@
 //#include <input/processors.dtsi>
 
 
-#define THUMB_LEFT  0
-#define THUMB_RIGHT 1
-#define FINGER_LEFT 2
-#define FINGER_RIGHT 3 
-#define THUMB_LEFT_SCROLL  4
-#define THUMB_RIGHT_SCROLL 5
+#define FRONT_LEFT  0
+#define FRONT_RIGHT 1
+#define BACK_LEFT 2
+#define BACK_RIGHT 3 
+#define FRONT_LEFT_SCROLL  4
+#define FRONT_RIGHT_SCROLL 5
 #define FINGERS_SCROLL 6
 
 // Mouse speed increased
@@ -42,13 +42,13 @@
 // &mkp LCLK &mkp MCLK &mkp RCLK  &none
 
 	// Layer 0
-        THUMB_LEFT {
+        FRONT_LEFT {
             bindings = <
-			&mkp LCLK             	&kp ESC
-		&mo THUMB_LEFT_SCROLL		     &none
-		&mkp RCLK    &kp A    &kp B          &none
+		&mo FINGERS_SCROLL			&mkp LCLK
+		&mkp MCLK				&mkp MCLK 				
+		&mkp RCLK      &kp A    &kp B		&kp ESC
 	                   /* Inner Buttons  */
-		&studio_unlock  &bt BT_NXT   &bt BT_CLR
+		  &bt BT_CLR  &bt BT_NXT   &studio_unlock
                      /* Handiness         Orientation */
 			&mo 1                   &mo 2
             >;
@@ -56,11 +56,11 @@
 
 
 	// Layer 1
-        THUMB_RIGHT {
+        FRONT_RIGHT {
             bindings = <
-     			&kp ESC        		&mkp LCLK             
-	       &none  				     	&mo THUMB_RIGHT_SCROLL
-	       &none  	 	&kp A    &kp B		&mkp RCLK                     
+		&mkp LCLK				&mo FINGERS_SCROLL
+		&mkp MCLK				&mkp MCLK 				
+		&kp ESC	      &kp B    &kp A		&mkp RCLK
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
@@ -69,20 +69,20 @@
         };
 
 	// Layer 2
-        FINGER_LEFT {
+        BACK_LEFT {
             bindings = <
-			&mkp RCLK		&mkp LCLK             
-		&mo FINGERS_SCROLL			&mkp MCLK
-		&kp ESC		&kp A    &kp B		&kp ESC					
+		&mkp RCLK 				&kp ESC	       				
+		&mkp MCLK				&mkp MCLK 				
+		&mo FINGERS_SCROLL &kp A    &kp B	&mkp LCLK
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
-			&trans                  &trans
+			&trans                 &trans
             >;
         };
 
 	// Layer 3
-        FINGER_RIGHT {
+        BACK_RIGHT {
             bindings = <
 		&kp ESC	       				&mkp RCLK 
 		&mkp MCLK 				&mkp MCLK
@@ -108,8 +108,8 @@
 	// It is detected in trackball_listener telling to switch from the pointing movement to scrolling.
 	// Need separate layers for orientation to implement 
  	// Layers 4, 5, 6
-/* 4 */ THUMB_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
-/* 5 */ THUMB_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 4 */ FRONT_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 5 */ FRONT_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
 /* 6 */ FINGERS_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
 
         extra1 {status = "reserved";};
@@ -126,8 +126,8 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <FINGER_LEFT THUMB_RIGHT>;
-            then-layer = <FINGER_RIGHT>;
+            if-layers = <BACK_LEFT FRONT_RIGHT>;
+            then-layer = <BACK_RIGHT>;
         };
     };
 

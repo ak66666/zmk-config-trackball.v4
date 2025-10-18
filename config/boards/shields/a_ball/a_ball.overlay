@@ -27,7 +27,7 @@
   		       /*  BTReset BTSelect Unlock  */ 
                           RC(0,8) RC(0,7)  RC(0,6)        
                /* Slider switches on the bottom of the middle deck */
-		/* Orientation (Thumb/Fingers)   Handiness L/R     */
+		/* Orientation (Front/Backwards)   Handiness L/R     */
                        RC(0,10)        	     RC(0,9)              
         >;
     };
@@ -47,7 +47,7 @@
             , <&pro_micro 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* BT Select */
             , <&pro_micro 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* BT Reset  */
             , <&pro_micro 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Handness: Pressed - Right, Released - Left */
- 	    , <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Orientation: Pressed - Fingers, Released - Thumbs */
+ 	    , <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Orientation: Pressed - Backwards, Released - fronts */
 
             , <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 7 */
             , <&pro_micro 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 8 */
@@ -114,8 +114,8 @@
     /* Note that process-next command is not used - for each orientation-specific layer there is a separate handler.
        They are arranged so the highest (by number) layers are processed first, thus avoiding interception from the lowest ones' overrides. */
 
-    /* layer-4 left hand thumb scroll override */
-    left_thumb_scroller: left_thumb_scroller{
+    /* layer-4 left hand front scroll override */
+    left_front_scroller: left_front_scroller{
         layers           = <4>;
         input-processors = <
             &zip_xy_transform ( INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
@@ -124,8 +124,8 @@
         >;
     };
 
-    /* layer-5 right hand thumb scroll override */
-    right_thumb_scroller: right_thumb_scroller{
+    /* layer-5 right hand front scroll override */
+    right_front_scroller: right_front_scroller{
         layers           = <5>;
         input-processors = <
             //&zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
@@ -134,8 +134,8 @@
         >;
     };
 
-    /* layer-6 both hands fingers scroll override */
-    fingers_scroller: fingers_scroller{
+    /* layer-6 both hands back scroll override */
+    back_scroller: back_scroller{
         layers           = <6>;
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP |  INPUT_TRANSFORM_X_INVERT) // Inverts the pointer direction       
@@ -144,14 +144,14 @@
         >;
     };
 
-    /* layer-0 Thumb Left Hand pointer */
+    /* layer-0 front Left Hand pointer */
     /* This default layer should not have any additional transformations. 
        All other layers will add to it, and then have all those extra steps removed
        when returned to the base layer.
     */
 
-    /* layer-2 Finger Left Hand pointer */
-    finger_left_hand_pointer: finger_left_hand_pointer{
+    /* layer-2 backwards Left Hand pointer */
+    back_left_hand_pointer: back_left_hand_pointer{
         layers           = <2 3>;
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP |  INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
@@ -161,11 +161,11 @@
 //	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
     };
 
-    /* layer-1 Thumb Right Hand pointer */
+    /* layer-1 Front Right Hand pointer */
     /* This layer's processor was intentionally moved to be after the left/right finger-controller layers, 
        so this is not get invoked when those layers are activated,
        to avoid double-rotations which occured when the handiness switch was set to Right before the orientation set to Landscape. */
-    thumb_right_hand_pointer: thumb_right_hand_pointer{
+    front_right_hand_pointer: front_right_hand_pointer{
         layers           = <1>;
         input-processors = <
             &zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
