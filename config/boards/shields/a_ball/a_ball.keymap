@@ -10,8 +10,8 @@
 //#include <input/processors.dtsi>
 
 
-#define FRONT_RIGHT  0
-#define FRONT_LEFT 1
+#define FRONT_LEFT 0
+#define FRONT_RIGHT 1
 #define BACK_LEFT 2
 #define BACK_RIGHT 3
 #define FRONT_LEFT_SCROLL  4
@@ -42,25 +42,25 @@
 // &mkp LCLK &mkp MCLK &mkp RCLK  &none
 
 	// Layer 0
-        FRONT_RIGHT {
+        FRONT_LEFT {
             bindings = <
-		&kp ESC						&mkp RCLK
+		&mkp RCLK					&kp ESC
 		&mkp MCLK					&mkp MCLK 				
-		&mkp LCLK	      &kp D    &kp C		&mo BACKWARD_SCROLL
+		&mo BACKWARD_SCROLL      &kp A    &kp B		&mkp LCLK
                /* Orientation (Front/Backward)   Handiness L/R     */
 		  &bt BT_CLR  &bt BT_NXT   &studio_unlock
-                     /* Handiness         Orientation */
+               /* Orientation (Front/Backward)   Handiness L/R     */
 			&mo 2                   &mo 1
             >;
         };
 
 
 	// Layer 1
-        FRONT_LEFT {
+        FRONT_RIGHT {
             bindings = <
-		&mkp RCLK					&kp ESC
+		&kp ESC						&mkp RCLK
 		&mkp MCLK					&mkp MCLK 				
-		&mo BACKWARD_SCROLL      &kp A    &kp B		&mkp LCLK
+		&mkp LCLK	      &kp D    &kp C		&mo BACKWARD_SCROLL
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                /* Orientation (Front/Backward)   Handiness L/R     */
@@ -126,7 +126,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <BACK_LEFT FRONT_RIGHT>;
+            if-layers = <FRONT_RIGHT BACK_LEFT>;
             then-layer = <BACK_RIGHT>;
         };
     };
