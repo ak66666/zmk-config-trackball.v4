@@ -108,7 +108,7 @@
     compatible = "zmk,input-listener";
     device = <&trackball>;
     /* base processor chain on all layers */
-    /* input-processors = <&zip_xy_scaler 5 5>; */
+    input-processors = < &zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) >; // Inverts the pointer direction       
 
     /* Put scroll handlers first so it can do its operations, and then proceed to the next side/orientation-specific processors */
     /* Note that process-next command is not used - for each orientation-specific layer there is a separate handler.
@@ -154,7 +154,7 @@
     back_left_hand_pointer: back_left_hand_pointer{
         layers           = <2 3>;
         input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP |  INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
+            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT |  INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
 	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
 	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
         >;
@@ -165,15 +165,15 @@
     /* This layer's processor was intentionally moved to be after the left/right finger-controller layers, 
        so this is not get invoked when those layers are activated,
        to avoid double-rotations which occured when the handiness switch was set to Right before the orientation set to Landscape. */
-    front_right_hand_pointer: front_right_hand_pointer{
-        layers           = <1>;
-        input-processors = <
-            &zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
-	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
-	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
-        >;
+//    front_right_hand_pointer: front_right_hand_pointer{
+//        layers           = <1>;
+//        input-processors = <
+//            //&zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
+//	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
+//	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
+//        >;
 //	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
-    };
+//    };
 
 
   };
