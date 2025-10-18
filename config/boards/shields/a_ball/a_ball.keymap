@@ -44,7 +44,7 @@
 	// Layer 0
         FRONT_RIGHT {
             bindings = <
-		&mo BACKWARD_SCROLL				&mkp LCLK
+		&mo FRONT_SCROLL				&mkp LCLK
 		&mkp MCLK					&mkp MCLK 				
 		&mkp RCLK	      &kp A    &kp B		&kp ESC
                /* Orientation (Front/Backward)   Handiness L/R     */
@@ -59,7 +59,7 @@
 	// Layer 1
         FRONT_LEFT {
             bindings = <
-		&mkp LCLK 				&mo BACKWARD_SCROLL
+		&mkp LCLK 				&mo FRONT_SCROLL
 		&mkp MCLK				&mkp MCLK 				
 		&kp ESC      &kp C    &kp D		&mkp RCLK
 	                   /* Inner Buttons  */
