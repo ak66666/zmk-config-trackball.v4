@@ -16,7 +16,7 @@
 #define BACK_RIGHT 3 
 #define FRONT_LEFT_SCROLL  4
 #define FRONT_RIGHT_SCROLL 5
-#define FINGERS_SCROLL 6
+#define BACKWARD_SCROLL 6
 
 // Mouse speed increased
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
@@ -35,7 +35,7 @@
 //  		       /*  BTReset BTSelect Unlock  */ 
 //                          RC(0,8) RC(0,7)  RC(0,6)        
 //               /* Slider switches on the bottom of the middle deck */                                                         /
-//		/* Orientation (Thumb/Fingers)   Handiness L/R     */
+//		/* Orientation (Front/Backward)   Handiness L/R     */
 //                       RC(0,10)        	     RC(0,9)              
 //        >;
 
@@ -46,11 +46,11 @@
             bindings = <
 		&mkp RCLK					&mkp LCLK
 		&mkp MCLK					&mkp MCLK 				
-		&mo FINGERS_SCROLL      &kp A    &kp B		&kp ESC
-	                   /* Inner Buttons  */
+		&mo BACKWARD_SCROLL      &kp A    &kp B		&kp ESC
+               /* Orientation (Front/Backward)   Handiness L/R     */
 		  &bt BT_CLR  &bt BT_NXT   &studio_unlock
                      /* Handiness         Orientation */
-			&mo 1                   &mo 2
+			&mo 2                   &mo 1
             >;
         };
 
@@ -60,10 +60,10 @@
             bindings = <
 		&mkp LCLK				&mkp RCLK
 		&mkp MCLK				&mkp MCLK 				
-		&kp ESC	      &kp D    &kp C		&mo FINGERS_SCROLL
+		&kp ESC	      &kp D    &kp C		&mo BACKWARD_SCROLL
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
-                     /* Handiness         Orientation */
+               /* Orientation (Front/Backward)   Handiness L/R     */
 			&trans                  &trans
             >;
         };
@@ -71,12 +71,12 @@
 	// Layer 2
         BACK_LEFT {
             bindings = <
-		&mo FINGERS_SCROLL			&kp ESC	       				
+		&mo BACKWARD_SCROLL			&kp ESC	       				
 		&mkp MCLK				&mkp MCLK 				
 		&mkp RCLK         &kp A    &kp B	&mkp LCLK
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
-                     /* Handiness         Orientation */
+               /* Orientation (Front/Backward)   Handiness L/R     */
 			&trans                 &trans
             >;
         };
@@ -84,12 +84,12 @@
 	// Layer 3
         BACK_RIGHT {
             bindings = <
-		&kp ESC	       				&mo FINGERS_SCROLL
+		&kp ESC	       				&mo BACKWARD_SCROLL
 		&mkp MCLK 				&mkp MCLK
 		&mkp LCLK  	&kp D    &kp C		&mkp RCLK 
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
-                     /* Handiness         Orientation */
+               /* Orientation (Front/Backward)   Handiness L/R     */
 			&trans                 &trans
             >;
         };
@@ -101,7 +101,7 @@
 //  		       /*  BTReset BTSelect Unlock  */ 
 //                          RC(0,8) RC(0,7)  RC(0,6)        
 //               /* Slider switches on the bottom of the middle deck */                                                         /
-//		/* Orientation (Thumb/Fingers)   Handiness L/R     */
+//		/* Orientation (Front/Backward)   Handiness L/R     */
 //                       RC(0,10)        	     RC(0,9)              
 
 	// Scroll layers do nothing by themselves, it is completely transparent.
@@ -110,7 +110,7 @@
  	// Layers 4, 5, 6
 /* 4 */ FRONT_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
 /* 5 */ FRONT_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
-/* 6 */ FINGERS_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 6 */ BACKWARD_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
 
         extra1 {status = "reserved";};
         extra2 {status = "reserved";};
