@@ -2,7 +2,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 //#include <dt-bindings/zmk/mouse.h>
-
+k
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/ext_power.h>
@@ -16,9 +16,8 @@
 #define FRONT_RIGHT 1
 #define BACK_LEFT 2
 #define BACK_RIGHT 3
-#define FRONT_LEFT_SCROLL  4
-#define FRONT_RIGHT_SCROLL 5
-#define BACKWARD_SCROLL 6
+#define FRONT_SCROLL 4
+#define BACKWARD_SCROLL 5
 
 // Mouse speed increased
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
@@ -30,27 +29,28 @@
         compatible = "zmk,keymap";
 
 //        map = <
-//   		 RC(0,5)    			    RC(0,2) 
-//		 RC(0,4)	/* Ball */	    RC(0,1)
-//	         RC(0,3)    RC(0,12)	RC(0,11)    RC(0,0) 
+//   		 RC(0,2)    			     	RC(0,5)
+//		 RC(0,1)	/* Ball */	        RC(0,4)
+//	         RC(0,0)    RC(0,12)	RC(0,11)        RC(0,3)
 //                   /* Buttons on top of the middle deck */
 //  		       /*  BTReset BTSelect Unlock  */ 
 //                          RC(0,8) RC(0,7)  RC(0,6)        
-//               /* Slider switches on the bottom of the middle deck */                                                         /
-//		/* Orientation (Front/Backward)   Handiness L/R     */
+//               /* Slider switches on the bottom of the middle deck */
+//		/* Orientation (Front/Backwards)   Handiness L/R     */
 //                       RC(0,10)        	     RC(0,9)              
-//        >;
+        >;
 
 // &mkp LCLK &mkp MCLK &mkp RCLK  &none
 
 	// Layer 0
         FRONT_LEFT {
             bindings = <
-		&mkp RCLK					&kp ESC
-		&mkp MCLK					&mkp MCLK 				
-		&mo BACKWARD_SCROLL      &kp A    &kp B		&mkp LCLK
+		&mkp LCLK 				&mo BACKWARD_SCROLL
+		&mkp MCLK				&mkp MCLK 				
+		&kp ESC      &kp A    &kp B		&mkp RCLK
                /* Orientation (Front/Backward)   Handiness L/R     */
-		  &bt BT_CLR  &bt BT_NXT   &studio_unlock
+   	/*	  &bt BT_CLR  &bt BT_NXT   &studio_unlock	*/
+			&kp 1  &kp 2  &kp 3
                /* Orientation (Front/Backward)   Handiness L/R     */
 			&mo 2                   &mo 1
             >;
@@ -60,9 +60,9 @@
 	// Layer 1
         FRONT_RIGHT {
             bindings = <
-		&kp ESC						&mkp RCLK
+		&mo BACKWARD_SCROLL				&mkp LCLK
 		&mkp MCLK					&mkp MCLK 				
-		&mkp LCLK	      &kp D    &kp C		&mo BACKWARD_SCROLL
+		&mkp RCLK	      &kp D    &kp C		&kp ESC
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                /* Orientation (Front/Backward)   Handiness L/R     */
@@ -73,9 +73,9 @@
 	// Layer 2
         BACK_LEFT {
             bindings = <
-		&mkp LCLK      				&mo BACKWARD_SCROLL
-		&mkp MCLK 				&mkp MCLK
-		&kp ESC  	&kp D    &kp C		&mkp RCLK 
+		&mkp RCLK				&kp ESC
+		&mkp MCLK				&mkp MCLK 				
+		&mo BACKWARD_SCROLL     &kp E    &kp F	&mkp LCLK
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                /* Orientation (Front/Backward)   Handiness L/R     */
@@ -86,9 +86,9 @@
 	// Layer 3
         BACK_RIGHT {
             bindings = <
-		&mo BACKWARD_SCROLL			&mkp LCLK
-		&mkp MCLK				&mkp MCLK 				
-		&mkp RCLK         &kp A    &kp B	&kp ESC
+		&kp ESC         			&mkp RCLK		
+		&mkp MCLK  				&mkp MCLK	
+		&mkp LCLK 	&kp G    &kp H		&mo BACKWARD_SCROLL 
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                /* Orientation (Front/Backward)   Handiness L/R     */
@@ -109,10 +109,9 @@
 	// Scroll layers do nothing by themselves, it is completely transparent.
 	// It is detected in trackball_listener telling to switch from the pointing movement to scrolling.
 	// Need separate layers for orientation to implement 
- 	// Layers 4, 5, 6
-/* 4 */ FRONT_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
-/* 5 */ FRONT_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
-/* 6 */ BACKWARD_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+ 	// Layers 4, 5
+/* 4 */ FRONT_SCROLL  	    {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 5 */ BACKWARD_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
 
         extra1 {status = "reserved";};
         extra2 {status = "reserved";};
