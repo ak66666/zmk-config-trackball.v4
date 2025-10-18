@@ -48,8 +48,8 @@
 		&mkp MCLK					&mkp MCLK 				
 		&mkp RCLK	      &kp A    &kp B		&kp ESC
                /* Orientation (Front/Backward)   Handiness L/R     */
-   	/*	  &bt BT_CLR  &bt BT_NXT   &studio_unlock	*/
-			&kp N1  &kp N2  &kp N3
+   		  &bt BT_CLR  &bt BT_NXT   &studio_unlock	
+			/*&kp N1  &kp N2  &kp N3*/
                /* Orientation (Front/Backward)   Handiness L/R     */
 			&mo 2                   &mo 1
             >;
