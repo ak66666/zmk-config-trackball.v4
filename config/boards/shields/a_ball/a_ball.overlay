@@ -108,7 +108,7 @@
     compatible = "zmk,input-listener";
     device = <&trackball>;
     /* base processor chain on all layers */
-    input-processors = < &zip_xy_transform ( INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) >; // Inverts the pointer direction       
+    input-processors = < &zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) >; // Inverts the pointer direction       
 
     /* Put scroll handlers first so it can do its operations, and then proceed to the next side/orientation-specific processors */
     /* Note that process-next command is not used - for each orientation-specific layer there is a separate handler.

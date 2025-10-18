@@ -44,9 +44,9 @@
 	// Layer 0
         FRONT_LEFT {
             bindings = <
-		&mo FINGERS_SCROLL			&mkp LCLK
-		&mkp MCLK				&mkp MCLK 				
-		&mkp RCLK      &kp A    &kp B		&kp ESC
+		&mkp RCLK					&mkp LCLK
+		&mkp MCLK					&mkp MCLK 				
+		&mo FINGERS_SCROLL      &kp A    &kp B		&kp ESC
 	                   /* Inner Buttons  */
 		  &bt BT_CLR  &bt BT_NXT   &studio_unlock
                      /* Handiness         Orientation */
@@ -58,9 +58,9 @@
 	// Layer 1
         FRONT_RIGHT {
             bindings = <
-		&mkp LCLK				&mo FINGERS_SCROLL
+		&mkp LCLK				&mkp RCLK
 		&mkp MCLK				&mkp MCLK 				
-		&kp ESC	      &kp B    &kp A		&mkp RCLK
+		&kp ESC	      &kp D    &kp C		&mo FINGERS_SCROLL
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
@@ -71,9 +71,9 @@
 	// Layer 2
         BACK_LEFT {
             bindings = <
-		&mkp RCLK 				&kp ESC	       				
+		&mo FINGERS_SCROLL			&kp ESC	       				
 		&mkp MCLK				&mkp MCLK 				
-		&mo FINGERS_SCROLL &kp A    &kp B	&mkp LCLK
+		&mkp RCLK         &kp A    &kp B	&mkp LCLK
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
@@ -84,9 +84,9 @@
 	// Layer 3
         BACK_RIGHT {
             bindings = <
-		&kp ESC	       				&mkp RCLK 
+		&kp ESC	       				&mo FINGERS_SCROLL
 		&mkp MCLK 				&mkp MCLK
-		&mkp LCLK  	&kp A    &kp B		&mo FINGERS_SCROLL
+		&mkp LCLK  	&kp D    &kp C		&mkp RCLK 
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                      /* Handiness         Orientation */
