@@ -27,7 +27,7 @@
   		       /*  BTReset BTSelect Unlock  */ 
                           RC(0,8) RC(0,7)  RC(0,6)        
                /* Slider switches on the bottom of the middle deck */
-		/* Orientation (Front/Backwards)   Handiness L/R     */
+		/* Orientation Front(Default)/Backwards   Handiness R(default)/L     */
                        RC(0,10)        	     RC(0,9)              
         >;
     };

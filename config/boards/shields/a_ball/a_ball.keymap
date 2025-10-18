@@ -11,8 +11,8 @@
 
 // Label re-defined: Fingers - Front, Thumb - Backwards
 
-#define FRONT_LEFT 0
-#define FRONT_RIGHT 1
+#define FRONT_RIGHT 0
+#define FRONT_LEFT 1
 #define BACK_LEFT 2
 #define BACK_RIGHT 3
 #define FRONT_SCROLL 4
@@ -42,11 +42,11 @@
 // &mkp LCLK &mkp MCLK &mkp RCLK  &none
 
 	// Layer 0
-        FRONT_LEFT {
+        FRONT_RIGHT {
             bindings = <
-		&mkp LCLK 				&mo BACKWARD_SCROLL
-		&mkp MCLK				&mkp MCLK 				
-		&kp ESC      &kp A    &kp B		&mkp RCLK
+		&mo BACKWARD_SCROLL				&mkp LCLK
+		&mkp MCLK					&mkp MCLK 				
+		&mkp RCLK	      &kp A    &kp B		&kp ESC
                /* Orientation (Front/Backward)   Handiness L/R     */
    	/*	  &bt BT_CLR  &bt BT_NXT   &studio_unlock	*/
 			&kp 1  &kp 2  &kp 3
@@ -57,11 +57,11 @@
 
 
 	// Layer 1
-        FRONT_RIGHT {
+        FRONT_LEFT {
             bindings = <
-		&mo BACKWARD_SCROLL				&mkp LCLK
-		&mkp MCLK					&mkp MCLK 				
-		&mkp RCLK	      &kp D    &kp C		&kp ESC
+		&mkp LCLK 				&mo BACKWARD_SCROLL
+		&mkp MCLK				&mkp MCLK 				
+		&kp ESC      &kp C    &kp D		&mkp RCLK
 	                   /* Inner Buttons  */
 		            &trans &trans &trans
                /* Orientation (Front/Backward)   Handiness L/R     */
