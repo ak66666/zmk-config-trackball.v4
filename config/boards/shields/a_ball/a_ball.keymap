@@ -126,7 +126,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <FRONT_RIGHT BACK_LEFT>;
+            if-layers = <FRONT_LEFT BACK_LEFT>;
             then-layer = <BACK_RIGHT>;
         };
     };
