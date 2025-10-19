@@ -1,7 +1,7 @@
 if SHIELD_A_BALL
 
 config ZMK_KEYBOARD_NAME
-    default "a_ball_v4"
+    default "a_ball"
 # Other keyboard settings
 
 config ZMK_POINTING

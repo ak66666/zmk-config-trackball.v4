@@ -20,14 +20,14 @@
         rows = <11>;
 	/* Map represents trackball in "Landscape" orientation, aka Finger-controlled, USB connectors toward user. */
         map = <
-   		 RC(0,5)    			    RC(0,2) 
-		 RC(0,4)	/* Ball */	    RC(0,1)
-	         RC(0,3)    RC(0,12)	RC(0,11)    RC(0,0) 
+   		 RC(0,2)    			     	RC(0,5)
+		 RC(0,1)	/* Ball */	        RC(0,4)
+	         RC(0,0)    RC(0,12)	RC(0,11)        RC(0,3)
                    /* Buttons on top of the middle deck */
   		       /*  BTReset BTSelect Unlock  */ 
                           RC(0,8) RC(0,7)  RC(0,6)        
                /* Slider switches on the bottom of the middle deck */
-		/* Orientation (Front/Backwards)   Handiness L/R     */
+		/* Orientation Front(Default)/Backwards   Handiness R(default)/L     */
                        RC(0,10)        	     RC(0,9)              
         >;
     };
@@ -114,44 +114,35 @@
     /* Note that process-next command is not used - for each orientation-specific layer there is a separate handler.
        They are arranged so the highest (by number) layers are processed first, thus avoiding interception from the lowest ones' overrides. */
 
-    /* layer-4 left hand front scroll override */
-    left_front_scroller: left_front_scroller{
+    /* layer-4 both hands front scroll override */
+    front_scroller: front_scroller{
         layers           = <4>;
         input-processors = <
-            &zip_xy_transform ( INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
+            //&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
             &zip_xy_scaler 1 15                              // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
         >;
     };
 
-    /* layer-5 right hand front scroll override */
-    right_front_scroller: right_front_scroller{
+
+    /* layer-5 both hands back scroll override */
+    back_scroller: back_scroller{
         layers           = <5>;
         input-processors = <
-            //&zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
+            &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
             &zip_xy_scaler 1 15                              // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
         >;
     };
 
-    /* layer-6 both hands back scroll override */
-    back_scroller: back_scroller{
-        layers           = <6>;
-        input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP |  INPUT_TRANSFORM_X_INVERT) // Inverts the pointer direction       
-            &zip_xy_scaler 1 15                              // Scales the scroll speed
-            &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
-        >;
-    };
-
-    /* layer-0 front Left Hand pointer */
+    /* layer-0 front Right Hand pointer */
     /* This default layer should not have any additional transformations. 
        All other layers will add to it, and then have all those extra steps removed
        when returned to the base layer.
     */
 
-    /* layer-2 backwards Left Hand pointer */
-    back_left_hand_pointer: back_left_hand_pointer{
+    /* layer-2 backwards pointer */
+    back__pointer: back_pointer{
         layers           = <2 3>;
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT |  INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
