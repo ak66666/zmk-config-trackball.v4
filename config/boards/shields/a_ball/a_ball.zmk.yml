@@ -2,7 +2,7 @@ file_format: "1"
 id: a_ball
 name: a_ball
 type: shield
-url: https://github.com/ak66666/ThumbsUp-Trackball
+url: https://github.com/ak66666/ThumbsUp-Trackball-v4
 requires: [pro_micro]
 features:
   - pointer
